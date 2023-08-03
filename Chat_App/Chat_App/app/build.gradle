@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.example.chat_app'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.chat_app"
+        minSdk 27
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        // Enabling View Binding -
+        // View binding is a feature that allows you to more easily write code that interacts with views.
+        // Once view binding is enabled in a module, it generates a binding clas for each XML layout file present in that module.
+        // An instance of a binding class contains direct references to all views taht have an ID in the corresponding layout
+
+        buildFeatures {
+            viewBinding true;
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Scaleable Size Unit (support for different screen sizes)
+    //An android lib that provides a new size unit SDP - a scaleable size unit This size unit scales with the screen size. it can help Android developers with supporting multiple screens sizes.
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //Rounded ImageView - A fast imageView (and Drawable) that supports rounded corners (and ovals or circles). it supports many additional features including ovals,rounded rectangles, ScaleTypes, and TileModes
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //FireBase
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'com.google.firebase:firebase-firestore:24.6.0'
+
+    //MultiDex -56,536.
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
